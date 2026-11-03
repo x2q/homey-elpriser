@@ -5,7 +5,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "test": "node --test --require ./test/setup.js test/",
+    "test": "node --test --require ./test/setup.js test/*.test.js",
     "validate": "homey app validate",
     "validate:publish": "homey app validate --level publish",
     "live": "node scripts/live-check.js"
