@@ -12,5 +12,12 @@
   },
   "devDependencies": {
     "homey": "^4.6.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x2q/homey-elpriser.git"
   }
 }
