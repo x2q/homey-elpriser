@@ -1,0 +1,16 @@
+{
+  "device": {
+    "unknown_zone": "Unknown price zone: {{zone}}. Remove the device and add it again.",
+    "no_data": "No price for the current hour yet.",
+    "no_data_offline": "No price for the current hour and elpriser.org cannot be reached. Trying again."
+  },
+  "warning": {
+    "offline": "elpriser.org cannot be reached. Showing the prices fetched earlier; they stay correct for the day they were published for."
+  },
+  "settings": {
+    "bad_mode": "Unknown price type.",
+    "bad_gln": "The GLN number must be exactly 13 digits.",
+    "need_grid_company": "This price type includes the grid tariff: pick a grid company or enter its GLN number.",
+    "bad_cheap_hours": "Number of cheap hours must be a whole number from 1 to 12."
+  }
+}

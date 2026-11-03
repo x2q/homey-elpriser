@@ -1,0 +1,992 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "org.elpriser",
+  "version": "0.1.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Elpriser",
+    "da": "Elpriser"
+  },
+  "brandColor": "#1F6F5C",
+  "description": {
+    "en": "Hourly electricity prices for 40 European price zones, with cheap-hour flows.",
+    "da": "Elpriser time for time for 40 europæiske prisområder, med flow til billige timer."
+  },
+  "category": [
+    "energy"
+  ],
+  "tags": {
+    "en": [
+      "electricity price",
+      "spot price",
+      "energy",
+      "Denmark",
+      "Nord Pool",
+      "cheap hours"
+    ],
+    "da": [
+      "elpris",
+      "spotpris",
+      "energi",
+      "Danmark",
+      "Nord Pool",
+      "billige timer"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "x2q"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "x2q"
+      }
+    ]
+  },
+  "source": "https://github.com/x2q/homey-elpriser",
+  "homepage": "https://elpriser.org",
+  "support": "https://github.com/x2q/homey-elpriser/issues",
+  "bugs": {
+    "url": "https://github.com/x2q/homey-elpriser/issues"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "A cheap hour starts",
+          "da": "En billig time starter"
+        },
+        "hint": {
+          "en": "Fires at the start of an hour that is one of today's cheapest hours (the number is set in the device settings) when the previous hour was not.",
+          "da": "Udløses ved starten af en time, der er en af dagens billigste (antallet angives i enhedens indstillinger), hvis den forrige time ikke var."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "price",
+            "type": "number",
+            "title": {
+              "en": "Price",
+              "da": "Pris"
+            },
+            "example": 1.23
+          },
+          {
+            "name": "hour",
+            "type": "number",
+            "title": {
+              "en": "Hour",
+              "da": "Time"
+            },
+            "example": 13
+          }
+        ],
+        "id": "cheap_hour_starts"
+      },
+      {
+        "title": {
+          "en": "The cheapest hour of the day starts",
+          "da": "Dagens billigste time starter"
+        },
+        "hint": {
+          "en": "Fires once a day, at the start of the hour with the lowest price of today.",
+          "da": "Udløses én gang om dagen, ved starten af den time med dagens laveste pris."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "price",
+            "type": "number",
+            "title": {
+              "en": "Price",
+              "da": "Pris"
+            },
+            "example": 1.23
+          },
+          {
+            "name": "hour",
+            "type": "number",
+            "title": {
+              "en": "Hour",
+              "da": "Time"
+            },
+            "example": 13
+          }
+        ],
+        "id": "cheapest_hour_starts"
+      },
+      {
+        "title": {
+          "en": "The price rises above a value",
+          "da": "Prisen stiger over en værdi"
+        },
+        "titleFormatted": {
+          "en": "The price rises above [[threshold]]",
+          "da": "Prisen stiger over [[threshold]]"
+        },
+        "hint": {
+          "en": "Fires at the start of an hour when the price of that hour is above the value and the previous hour's was not. The value is in the zone's currency per kWh.",
+          "da": "Udløses ved starten af en time, hvis timens pris er over værdien, og den forrige times pris ikke var. Værdien er i zonens valuta pr. kWh."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": {
+              "en": "1.50",
+              "da": "1,50"
+            },
+            "step": 0.001,
+            "min": -100,
+            "max": 1000000
+          }
+        ],
+        "tokens": [
+          {
+            "name": "price",
+            "type": "number",
+            "title": {
+              "en": "Price",
+              "da": "Pris"
+            },
+            "example": 1.23
+          }
+        ],
+        "id": "price_above"
+      },
+      {
+        "title": {
+          "en": "The price drops below a value",
+          "da": "Prisen falder under en værdi"
+        },
+        "titleFormatted": {
+          "en": "The price drops below [[threshold]]",
+          "da": "Prisen falder under [[threshold]]"
+        },
+        "hint": {
+          "en": "Fires at the start of an hour when the price of that hour is below the value and the previous hour's was not. The value is in the zone's currency per kWh.",
+          "da": "Udløses ved starten af en time, hvis timens pris er under værdien, og den forrige times pris ikke var. Værdien er i zonens valuta pr. kWh."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": {
+              "en": "1.50",
+              "da": "1,50"
+            },
+            "step": 0.001,
+            "min": -100,
+            "max": 1000000
+          }
+        ],
+        "tokens": [
+          {
+            "name": "price",
+            "type": "number",
+            "title": {
+              "en": "Price",
+              "da": "Pris"
+            },
+            "example": 1.23
+          }
+        ],
+        "id": "price_below"
+      },
+      {
+        "title": {
+          "en": "The price level changed",
+          "da": "Prisniveauet ændrede sig"
+        },
+        "titleFormatted": {
+          "en": "The price level changed to [[level]]",
+          "da": "Prisniveauet ændrede sig til [[level]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          },
+          {
+            "type": "dropdown",
+            "name": "level",
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "any level",
+                  "da": "et hvilket som helst niveau"
+                }
+              },
+              {
+                "id": "cheap",
+                "label": {
+                  "en": "cheap",
+                  "da": "billig"
+                }
+              },
+              {
+                "id": "normal",
+                "label": {
+                  "en": "normal",
+                  "da": "normal"
+                }
+              },
+              {
+                "id": "expensive",
+                "label": {
+                  "en": "expensive",
+                  "da": "dyr"
+                }
+              }
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "name": "level",
+            "type": "string",
+            "title": {
+              "en": "Level",
+              "da": "Niveau"
+            },
+            "example": "cheap"
+          },
+          {
+            "name": "previous_level",
+            "type": "string",
+            "title": {
+              "en": "Previous level",
+              "da": "Forrige niveau"
+            },
+            "example": "normal"
+          },
+          {
+            "name": "price",
+            "type": "number",
+            "title": {
+              "en": "Price",
+              "da": "Pris"
+            },
+            "example": 1.23
+          }
+        ],
+        "id": "price_level_changed"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "The current hour is among the cheapest",
+          "da": "Den aktuelle time er blandt de billigste"
+        },
+        "titleFormatted": {
+          "en": "The current hour !{{is|is not}} among the [[hours]] cheapest hours of today",
+          "da": "Den aktuelle time !{{er|er ikke}} blandt dagens [[hours]] billigste timer"
+        },
+        "hint": {
+          "en": "False if the price for this hour is not known (for example when the prices could not be fetched).",
+          "da": "Falsk, hvis prisen for denne time ikke kendes (fx hvis priserne ikke kunne hentes)."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          },
+          {
+            "name": "hours",
+            "type": "number",
+            "placeholder": {
+              "en": "4",
+              "da": "4"
+            },
+            "min": 1,
+            "max": 23,
+            "step": 1
+          }
+        ],
+        "id": "in_cheapest_hours"
+      },
+      {
+        "title": {
+          "en": "The price is below a value",
+          "da": "Prisen er under en værdi"
+        },
+        "titleFormatted": {
+          "en": "The price now !{{is|is not}} below [[threshold]]",
+          "da": "Prisen nu !{{er|er ikke}} under [[threshold]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          },
+          {
+            "name": "threshold",
+            "type": "number",
+            "placeholder": {
+              "en": "1.50",
+              "da": "1,50"
+            },
+            "step": 0.001,
+            "min": -100,
+            "max": 1000000
+          }
+        ],
+        "id": "price_below"
+      },
+      {
+        "title": {
+          "en": "The price level is",
+          "da": "Prisniveauet er"
+        },
+        "titleFormatted": {
+          "en": "The price level !{{is|is not}} [[level]]",
+          "da": "Prisniveauet !{{er|er ikke}} [[level]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=zone"
+          },
+          {
+            "type": "dropdown",
+            "name": "level",
+            "values": [
+              {
+                "id": "cheap",
+                "label": {
+                  "en": "cheap",
+                  "da": "billig"
+                }
+              },
+              {
+                "id": "normal",
+                "label": {
+                  "en": "normal",
+                  "da": "normal"
+                }
+              },
+              {
+                "id": "expensive",
+                "label": {
+                  "en": "expensive",
+                  "da": "dyr"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "price_level_is"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Price zone",
+        "da": "Prisområde"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_price",
+        "measure_price_next",
+        "measure_price_min",
+        "measure_price_max",
+        "measure_price_avg",
+        "price_level",
+        "cheap_hour_now",
+        "cheapest_hour_start"
+      ],
+      "capabilitiesOptions": {},
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [],
+      "images": {
+        "small": "/drivers/zone/assets/images/small.png",
+        "large": "/drivers/zone/assets/images/large.png",
+        "xlarge": "/drivers/zone/assets/images/xlarge.png"
+      },
+      "icon": "/drivers/zone/assets/icon.svg",
+      "id": "zone",
+      "settings": [
+        {
+          "id": "cheap_hours",
+          "type": "number",
+          "value": 4,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "label": {
+            "en": "Number of cheap hours",
+            "da": "Antal billige timer"
+          },
+          "hint": {
+            "en": "The \"Cheap hour\" switch is on while the current hour is one of this many cheapest hours of today (1-12).",
+            "da": "Kontakten \"Billig time\" er tændt, mens den aktuelle time er en af dagens så mange billigste timer (1-12)."
+          }
+        },
+        {
+          "id": "data_source",
+          "type": "label",
+          "label": {
+            "en": "Data source",
+            "da": "Datakilde"
+          },
+          "value": "elpriser.org"
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Denmark only (DK1, DK2)",
+            "da": "Kun Danmark (DK1, DK2)"
+          },
+          "children": [
+            {
+              "id": "price_mode",
+              "type": "dropdown",
+              "value": "inkl_alt",
+              "label": {
+                "en": "Price type",
+                "da": "Pristype"
+              },
+              "hint": {
+                "en": "Ignored for zones outside Denmark, which always show the wholesale price without VAT, taxes and grid fees.",
+                "da": "Ignoreres for zoner uden for Danmark, som altid viser engrospris uden moms, afgifter og nettarif."
+              },
+              "values": [
+                {
+                  "id": "inkl_alt",
+                  "label": {
+                    "en": "Spot + Energinet tariffs + electricity tax + VAT (default)",
+                    "da": "Spot + Energinets tariffer + elafgift + moms (standard)"
+                  }
+                },
+                {
+                  "id": "spot_inkl",
+                  "label": {
+                    "en": "Spot price incl. VAT",
+                    "da": "Spotpris inkl. moms"
+                  }
+                },
+                {
+                  "id": "spot_ex",
+                  "label": {
+                    "en": "Spot price excl. VAT",
+                    "da": "Spotpris ekskl. moms"
+                  }
+                },
+                {
+                  "id": "inkl_alt_minus",
+                  "label": {
+                    "en": "Like default, without the electricity tax",
+                    "da": "Som standard, men uden elafgift"
+                  }
+                },
+                {
+                  "id": "inkl_alt_elvarme",
+                  "label": {
+                    "en": "Like default, reduced tax for electric heating",
+                    "da": "Som standard, med nedsat afgift til elvarme"
+                  }
+                },
+                {
+                  "id": "net_inkl_alt",
+                  "label": {
+                    "en": "Full price incl. your grid company's tariff (needs grid company)",
+                    "da": "Hele prisen inkl. dit netselskabs tarif (kræver netselskab)"
+                  }
+                },
+                {
+                  "id": "net_inkl_alt_elvarme",
+                  "label": {
+                    "en": "Full price, reduced tax for electric heating (needs grid company)",
+                    "da": "Hele prisen, nedsat afgift til elvarme (kræver netselskab)"
+                  }
+                },
+                {
+                  "id": "net_inkl_tarif",
+                  "label": {
+                    "en": "Spot + tariffs incl. grid tariff, without tax (needs grid company)",
+                    "da": "Spot + tariffer inkl. nettarif, uden afgift (kræver netselskab)"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "grid_company",
+              "type": "dropdown",
+              "value": "none",
+              "label": {
+                "en": "Grid company",
+                "da": "Netselskab"
+              },
+              "hint": {
+                "en": "Needed for the price types that include the grid tariff.",
+                "da": "Kræves til de pristyper, der inkluderer nettariffen."
+              },
+              "values": [
+                {
+                  "id": "none",
+                  "label": {
+                    "en": "None (without grid tariff)",
+                    "da": "Ingen (uden nettarif)"
+                  }
+                },
+                {
+                  "id": "5790001089030",
+                  "label": {
+                    "en": "N1 (DK1)",
+                    "da": "N1 (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000392261",
+                  "label": {
+                    "en": "Trefor (DK1)",
+                    "da": "Trefor (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000704842",
+                  "label": {
+                    "en": "Konstant (DK1)",
+                    "da": "Konstant (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000610099",
+                  "label": {
+                    "en": "Dinel (DK1)",
+                    "da": "Dinel (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000610976",
+                  "label": {
+                    "en": "Vores Elnet (DK1)",
+                    "da": "Vores Elnet (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000836727",
+                  "label": {
+                    "en": "Ravdex (DK1)",
+                    "da": "Ravdex (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000681327",
+                  "label": {
+                    "en": "RAH Net (DK1)",
+                    "da": "RAH Net (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000681358",
+                  "label": {
+                    "en": "Elværk (DK1)",
+                    "da": "Elværk (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000610877",
+                  "label": {
+                    "en": "Nord Energi (DK1)",
+                    "da": "Nord Energi (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000395620",
+                  "label": {
+                    "en": "NOE Net (DK1)",
+                    "da": "NOE Net (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001100520",
+                  "label": {
+                    "en": "Elnet Midt (DK1)",
+                    "da": "Elnet Midt (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000392551",
+                  "label": {
+                    "en": "Flow Elnet (DK1)",
+                    "da": "Flow Elnet (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001090111",
+                  "label": {
+                    "en": "LNet (DK1)",
+                    "da": "LNet (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001088217",
+                  "label": {
+                    "en": "Veksel (DK1)",
+                    "da": "Veksel (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000682102",
+                  "label": {
+                    "en": "Ikast El Net (DK1)",
+                    "da": "Ikast El Net (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001089023",
+                  "label": {
+                    "en": "Midtfyns Elforsyning (DK1)",
+                    "da": "Midtfyns Elforsyning (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001095277",
+                  "label": {
+                    "en": "Elinord (DK1)",
+                    "da": "Elinord (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001103460",
+                  "label": {
+                    "en": "Læsø Elnet (DK1)",
+                    "da": "Læsø Elnet (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001095444",
+                  "label": {
+                    "en": "Sunds Net (DK1)",
+                    "da": "Sunds Net (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000706419",
+                  "label": {
+                    "en": "Tarm Elværk (DK1)",
+                    "da": "Tarm Elværk (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001090166",
+                  "label": {
+                    "en": "Hammel Elforsyning (DK1)",
+                    "da": "Hammel Elforsyning (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000681105",
+                  "label": {
+                    "en": "Grindsted Elnet (DK1)",
+                    "da": "Grindsted Elnet (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001088309",
+                  "label": {
+                    "en": "Forsyning Elnet (DK1)",
+                    "da": "Forsyning Elnet (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001095451",
+                  "label": {
+                    "en": "Aal El-Net (DK1)",
+                    "da": "Aal El-Net (DK1)"
+                  }
+                },
+                {
+                  "id": "5790001095376",
+                  "label": {
+                    "en": "Hjerting (DK1)",
+                    "da": "Hjerting (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000610839",
+                  "label": {
+                    "en": "Hurup Elværk (DK1)",
+                    "da": "Hurup Elværk (DK1)"
+                  }
+                },
+                {
+                  "id": "5790000705184",
+                  "label": {
+                    "en": "Cerius (DK2)",
+                    "da": "Cerius (DK2)"
+                  }
+                },
+                {
+                  "id": "5790000706686",
+                  "label": {
+                    "en": "Trefor Øst (DK2)",
+                    "da": "Trefor Øst (DK2)"
+                  }
+                },
+                {
+                  "id": "5790000705689",
+                  "label": {
+                    "en": "Radius (DK2)",
+                    "da": "Radius (DK2)"
+                  }
+                },
+                {
+                  "id": "5790000836239",
+                  "label": {
+                    "en": "Elektrus (DK2)",
+                    "da": "Elektrus (DK2)"
+                  }
+                },
+                {
+                  "id": "5790001089375",
+                  "label": {
+                    "en": "Zeanet (DK2)",
+                    "da": "Zeanet (DK2)"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gln_custom",
+              "type": "text",
+              "value": "",
+              "label": {
+                "en": "Grid company GLN (optional)",
+                "da": "Netselskabets GLN-nummer (valgfrit)"
+              },
+              "hint": {
+                "en": "A 13-digit GLN number for a grid company that is not in the list. Overrides the list when filled in.",
+                "da": "Et 13-cifret GLN-nummer for et netselskab, der ikke står på listen. Går forud for listen, når det er udfyldt."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "cheap_hour_now": {
+      "type": "boolean",
+      "title": {
+        "en": "Cheap hour",
+        "da": "Billig time"
+      },
+      "titleTrue": {
+        "en": "Cheap hour",
+        "da": "Billig time"
+      },
+      "titleFalse": {
+        "en": "Not a cheap hour",
+        "da": "Ikke en billig time"
+      },
+      "desc": {
+        "en": "On while the current hour is one of today's cheapest hours (number set in the device settings)",
+        "da": "Tændt, mens den aktuelle time er en af dagens billigste (antal angives i enhedens indstillinger)"
+      },
+      "insights": false,
+      "insightsTitleTrue": {
+        "en": "Cheap hour started",
+        "da": "Billig time startede"
+      },
+      "insightsTitleFalse": {
+        "en": "Cheap hour ended",
+        "da": "Billig time sluttede"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "cheapest_hour_start": {
+      "type": "string",
+      "title": {
+        "en": "Cheapest hour",
+        "da": "Billigste time"
+      },
+      "desc": {
+        "en": "When today's cheapest hour starts, on the zone's own clock",
+        "da": "Hvornår dagens billigste time starter, på zonens eget ur"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "measure_price": {
+      "type": "number",
+      "title": {
+        "en": "Price now",
+        "da": "Pris nu"
+      },
+      "desc": {
+        "en": "Electricity price for the current hour, in the zone's currency per kWh",
+        "da": "Elprisen for den aktuelle time, i zonens valuta pr. kWh"
+      },
+      "units": {
+        "en": "/kWh"
+      },
+      "decimals": 4,
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "chartType": "stepLine"
+    },
+    "measure_price_avg": {
+      "type": "number",
+      "title": {
+        "en": "Average today",
+        "da": "Gennemsnit i dag"
+      },
+      "desc": {
+        "en": "Average hourly price of today",
+        "da": "Dagens gennemsnitlige timepris"
+      },
+      "units": {
+        "en": "/kWh"
+      },
+      "decimals": 4,
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "measure_price_max": {
+      "type": "number",
+      "title": {
+        "en": "Highest today",
+        "da": "Højeste i dag"
+      },
+      "desc": {
+        "en": "Highest hourly price of today",
+        "da": "Dagens højeste timepris"
+      },
+      "units": {
+        "en": "/kWh"
+      },
+      "decimals": 4,
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "measure_price_min": {
+      "type": "number",
+      "title": {
+        "en": "Lowest today",
+        "da": "Laveste i dag"
+      },
+      "desc": {
+        "en": "Lowest hourly price of today",
+        "da": "Dagens laveste timepris"
+      },
+      "units": {
+        "en": "/kWh"
+      },
+      "decimals": 4,
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "measure_price_next": {
+      "type": "number",
+      "title": {
+        "en": "Price next hour",
+        "da": "Pris næste time"
+      },
+      "desc": {
+        "en": "Electricity price for the next hour, empty until it is published",
+        "da": "Elprisen for næste time, tom indtil den er offentliggjort"
+      },
+      "units": {
+        "en": "/kWh"
+      },
+      "decimals": 4,
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "price_level": {
+      "type": "enum",
+      "title": {
+        "en": "Price level",
+        "da": "Prisniveau"
+      },
+      "desc": {
+        "en": "The current price within today's range: lowest third, middle or highest third",
+        "da": "Den aktuelle pris i forhold til dagens spænd: laveste tredjedel, midten eller højeste tredjedel"
+      },
+      "values": [
+        {
+          "id": "cheap",
+          "title": {
+            "en": "Cheap",
+            "da": "Billig"
+          }
+        },
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "da": "Normal"
+          }
+        },
+        {
+          "id": "expensive",
+          "title": {
+            "en": "Expensive",
+            "da": "Dyr"
+          }
+        }
+      ],
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    }
+  }
+}

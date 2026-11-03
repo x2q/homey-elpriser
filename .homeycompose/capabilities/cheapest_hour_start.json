@@ -1,0 +1,15 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Cheapest hour",
+    "da": "Billigste time"
+  },
+  "desc": {
+    "en": "When today's cheapest hour starts, on the zone's own clock",
+    "da": "Hvornår dagens billigste time starter, på zonens eget ur"
+  },
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

@@ -1,0 +1,32 @@
+{
+  "title": {
+    "en": "The current hour is among the cheapest",
+    "da": "Den aktuelle time er blandt de billigste"
+  },
+  "titleFormatted": {
+    "en": "The current hour !{{is|is not}} among the [[hours]] cheapest hours of today",
+    "da": "Den aktuelle time !{{er|er ikke}} blandt dagens [[hours]] billigste timer"
+  },
+  "hint": {
+    "en": "False if the price for this hour is not known (for example when the prices could not be fetched).",
+    "da": "Falsk, hvis prisen for denne time ikke kendes (fx hvis priserne ikke kunne hentes)."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=zone"
+    },
+    {
+      "name": "hours",
+      "type": "number",
+      "placeholder": {
+        "en": "4",
+        "da": "4"
+      },
+      "min": 1,
+      "max": 23,
+      "step": 1
+    }
+  ]
+}

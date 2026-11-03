@@ -1,0 +1,6 @@
+{
+  "0.1.0": {
+    "en": "First version: one device per price zone (40 zones), price now / next hour / today min, max and average, price level, cheap-hour switch, flow triggers and conditions.",
+    "da": "Første version: én enhed pr. prisområde (40 zoner), pris nu / næste time / dagens laveste, højeste og gennemsnit, prisniveau, billig-time-kontakt, flow-triggere og betingelser."
+  }
+}

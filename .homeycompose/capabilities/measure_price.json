@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Price now",
+    "da": "Pris nu"
+  },
+  "desc": {
+    "en": "Electricity price for the current hour, in the zone's currency per kWh",
+    "da": "Elprisen for den aktuelle time, i zonens valuta pr. kWh"
+  },
+  "units": {
+    "en": "/kWh"
+  },
+  "decimals": 4,
+  "insights": true,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "chartType": "stepLine"
+}

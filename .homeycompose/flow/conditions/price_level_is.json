@@ -1,0 +1,44 @@
+{
+  "title": {
+    "en": "The price level is",
+    "da": "Prisniveauet er"
+  },
+  "titleFormatted": {
+    "en": "The price level !{{is|is not}} [[level]]",
+    "da": "Prisniveauet !{{er|er ikke}} [[level]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=zone"
+    },
+    {
+      "type": "dropdown",
+      "name": "level",
+      "values": [
+        {
+          "id": "cheap",
+          "label": {
+            "en": "cheap",
+            "da": "billig"
+          }
+        },
+        {
+          "id": "normal",
+          "label": {
+            "en": "normal",
+            "da": "normal"
+          }
+        },
+        {
+          "id": "expensive",
+          "label": {
+            "en": "expensive",
+            "da": "dyr"
+          }
+        }
+      ]
+    }
+  ]
+}

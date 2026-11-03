@@ -1,0 +1,16 @@
+{
+  "device": {
+    "unknown_zone": "Ukendt prisområde: {{zone}}. Fjern enheden og tilføj den igen.",
+    "no_data": "Ingen pris for den aktuelle time endnu.",
+    "no_data_offline": "Ingen pris for den aktuelle time, og elpriser.org kan ikke nås. Prøver igen."
+  },
+  "warning": {
+    "offline": "elpriser.org kan ikke nås. Viser de priser, der blev hentet tidligere; de er stadig rigtige for den dag, de blev offentliggjort til."
+  },
+  "settings": {
+    "bad_mode": "Ukendt pristype.",
+    "bad_gln": "GLN-nummeret skal være præcis 13 cifre.",
+    "need_grid_company": "Denne pristype inkluderer nettariffen: vælg et netselskab, eller skriv dets GLN-nummer.",
+    "bad_cheap_hours": "Antal billige timer skal være et helt tal fra 1 til 12."
+  }
+}

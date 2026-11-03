@@ -1,0 +1,61 @@
+{
+  "id": "org.elpriser",
+  "version": "0.1.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Elpriser",
+    "da": "Elpriser"
+  },
+  "brandColor": "#1F6F5C",
+  "description": {
+    "en": "Hourly electricity prices for 40 European price zones, with cheap-hour flows.",
+    "da": "Elpriser time for time for 40 europæiske prisområder, med flow til billige timer."
+  },
+  "category": [
+    "energy"
+  ],
+  "tags": {
+    "en": [
+      "electricity price",
+      "spot price",
+      "energy",
+      "Denmark",
+      "Nord Pool",
+      "cheap hours"
+    ],
+    "da": [
+      "elpris",
+      "spotpris",
+      "energi",
+      "Danmark",
+      "Nord Pool",
+      "billige timer"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "x2q"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "x2q"
+      }
+    ]
+  },
+  "source": "https://github.com/x2q/homey-elpriser",
+  "homepage": "https://elpriser.org",
+  "support": "https://github.com/x2q/homey-elpriser/issues",
+  "bugs": {
+    "url": "https://github.com/x2q/homey-elpriser/issues"
+  }
+}

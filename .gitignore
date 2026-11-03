@@ -1,0 +1,5 @@
+node_modules/
+env.json
+.homeybuild/
+.DS_Store
+coverage/

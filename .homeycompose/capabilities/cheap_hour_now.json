@@ -1,0 +1,31 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Cheap hour",
+    "da": "Billig time"
+  },
+  "titleTrue": {
+    "en": "Cheap hour",
+    "da": "Billig time"
+  },
+  "titleFalse": {
+    "en": "Not a cheap hour",
+    "da": "Ikke en billig time"
+  },
+  "desc": {
+    "en": "On while the current hour is one of today's cheapest hours (number set in the device settings)",
+    "da": "Tændt, mens den aktuelle time er en af dagens billigste (antal angives i enhedens indstillinger)"
+  },
+  "insights": false,
+  "insightsTitleTrue": {
+    "en": "Cheap hour started",
+    "da": "Billig time startede"
+  },
+  "insightsTitleFalse": {
+    "en": "Cheap hour ended",
+    "da": "Billig time sluttede"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

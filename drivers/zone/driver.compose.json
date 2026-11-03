@@ -1,0 +1,28 @@
+{
+  "name": {
+    "en": "Price zone",
+    "da": "Prisområde"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_price",
+    "measure_price_next",
+    "measure_price_min",
+    "measure_price_max",
+    "measure_price_avg",
+    "price_level",
+    "cheap_hour_now",
+    "cheapest_hour_start"
+  ],
+  "capabilitiesOptions": {},
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [],
+  "images": {
+    "small": "/drivers/zone/assets/images/small.png",
+    "large": "/drivers/zone/assets/images/large.png",
+    "xlarge": "/drivers/zone/assets/images/xlarge.png"
+  },
+  "icon": "/drivers/zone/assets/icon.svg"
+}

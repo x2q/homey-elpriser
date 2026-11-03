@@ -1,0 +1,37 @@
+{
+  "title": {
+    "en": "The cheapest hour of the day starts",
+    "da": "Dagens billigste time starter"
+  },
+  "hint": {
+    "en": "Fires once a day, at the start of the hour with the lowest price of today.",
+    "da": "Udløses én gang om dagen, ved starten af den time med dagens laveste pris."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=zone"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "price",
+      "type": "number",
+      "title": {
+        "en": "Price",
+        "da": "Pris"
+      },
+      "example": 1.23
+    },
+    {
+      "name": "hour",
+      "type": "number",
+      "title": {
+        "en": "Hour",
+        "da": "Time"
+      },
+      "example": 13
+    }
+  ]
+}

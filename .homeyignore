@@ -1,0 +1,5 @@
+test/
+scripts/
+.github/
+.gitignore
+package-lock.json

@@ -1,0 +1,38 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Price level",
+    "da": "Prisniveau"
+  },
+  "desc": {
+    "en": "The current price within today's range: lowest third, middle or highest third",
+    "da": "Den aktuelle pris i forhold til dagens spænd: laveste tredjedel, midten eller højeste tredjedel"
+  },
+  "values": [
+    {
+      "id": "cheap",
+      "title": {
+        "en": "Cheap",
+        "da": "Billig"
+      }
+    },
+    {
+      "id": "normal",
+      "title": {
+        "en": "Normal",
+        "da": "Normal"
+      }
+    },
+    {
+      "id": "expensive",
+      "title": {
+        "en": "Expensive",
+        "da": "Dyr"
+      }
+    }
+  ],
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

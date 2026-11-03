@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Highest today",
+    "da": "Højeste i dag"
+  },
+  "desc": {
+    "en": "Highest hourly price of today",
+    "da": "Dagens højeste timepris"
+  },
+  "units": {
+    "en": "/kWh"
+  },
+  "decimals": 4,
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

@@ -1,0 +1,28 @@
+{
+  "title": {
+    "en": "The price is below a value",
+    "da": "Prisen er under en værdi"
+  },
+  "titleFormatted": {
+    "en": "The price now !{{is|is not}} below [[threshold]]",
+    "da": "Prisen nu !{{er|er ikke}} under [[threshold]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=zone"
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "placeholder": {
+        "en": "1.50",
+        "da": "1,50"
+      },
+      "step": 0.001,
+      "min": -100,
+      "max": 1000000
+    }
+  ]
+}

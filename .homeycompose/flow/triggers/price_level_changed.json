@@ -1,0 +1,80 @@
+{
+  "title": {
+    "en": "The price level changed",
+    "da": "Prisniveauet ændrede sig"
+  },
+  "titleFormatted": {
+    "en": "The price level changed to [[level]]",
+    "da": "Prisniveauet ændrede sig til [[level]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=zone"
+    },
+    {
+      "type": "dropdown",
+      "name": "level",
+      "values": [
+        {
+          "id": "any",
+          "label": {
+            "en": "any level",
+            "da": "et hvilket som helst niveau"
+          }
+        },
+        {
+          "id": "cheap",
+          "label": {
+            "en": "cheap",
+            "da": "billig"
+          }
+        },
+        {
+          "id": "normal",
+          "label": {
+            "en": "normal",
+            "da": "normal"
+          }
+        },
+        {
+          "id": "expensive",
+          "label": {
+            "en": "expensive",
+            "da": "dyr"
+          }
+        }
+      ]
+    }
+  ],
+  "tokens": [
+    {
+      "name": "level",
+      "type": "string",
+      "title": {
+        "en": "Level",
+        "da": "Niveau"
+      },
+      "example": "cheap"
+    },
+    {
+      "name": "previous_level",
+      "type": "string",
+      "title": {
+        "en": "Previous level",
+        "da": "Forrige niveau"
+      },
+      "example": "normal"
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "title": {
+        "en": "Price",
+        "da": "Pris"
+      },
+      "example": 1.23
+    }
+  ]
+}

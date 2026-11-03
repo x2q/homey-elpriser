@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Price next hour",
+    "da": "Pris næste time"
+  },
+  "desc": {
+    "en": "Electricity price for the next hour, empty until it is published",
+    "da": "Elprisen for næste time, tom indtil den er offentliggjort"
+  },
+  "units": {
+    "en": "/kWh"
+  },
+  "decimals": 4,
+  "insights": false,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

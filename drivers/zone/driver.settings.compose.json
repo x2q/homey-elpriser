@@ -1,0 +1,359 @@
+[
+  {
+    "id": "cheap_hours",
+    "type": "number",
+    "value": 4,
+    "min": 1,
+    "max": 12,
+    "step": 1,
+    "label": {
+      "en": "Number of cheap hours",
+      "da": "Antal billige timer"
+    },
+    "hint": {
+      "en": "The \"Cheap hour\" switch is on while the current hour is one of this many cheapest hours of today (1-12).",
+      "da": "Kontakten \"Billig time\" er tændt, mens den aktuelle time er en af dagens så mange billigste timer (1-12)."
+    }
+  },
+  {
+    "id": "data_source",
+    "type": "label",
+    "label": {
+      "en": "Data source",
+      "da": "Datakilde"
+    },
+    "value": "elpriser.org"
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Denmark only (DK1, DK2)",
+      "da": "Kun Danmark (DK1, DK2)"
+    },
+    "children": [
+      {
+        "id": "price_mode",
+        "type": "dropdown",
+        "value": "inkl_alt",
+        "label": {
+          "en": "Price type",
+          "da": "Pristype"
+        },
+        "hint": {
+          "en": "Ignored for zones outside Denmark, which always show the wholesale price without VAT, taxes and grid fees.",
+          "da": "Ignoreres for zoner uden for Danmark, som altid viser engrospris uden moms, afgifter og nettarif."
+        },
+        "values": [
+          {
+            "id": "inkl_alt",
+            "label": {
+              "en": "Spot + Energinet tariffs + electricity tax + VAT (default)",
+              "da": "Spot + Energinets tariffer + elafgift + moms (standard)"
+            }
+          },
+          {
+            "id": "spot_inkl",
+            "label": {
+              "en": "Spot price incl. VAT",
+              "da": "Spotpris inkl. moms"
+            }
+          },
+          {
+            "id": "spot_ex",
+            "label": {
+              "en": "Spot price excl. VAT",
+              "da": "Spotpris ekskl. moms"
+            }
+          },
+          {
+            "id": "inkl_alt_minus",
+            "label": {
+              "en": "Like default, without the electricity tax",
+              "da": "Som standard, men uden elafgift"
+            }
+          },
+          {
+            "id": "inkl_alt_elvarme",
+            "label": {
+              "en": "Like default, reduced tax for electric heating",
+              "da": "Som standard, med nedsat afgift til elvarme"
+            }
+          },
+          {
+            "id": "net_inkl_alt",
+            "label": {
+              "en": "Full price incl. your grid company's tariff (needs grid company)",
+              "da": "Hele prisen inkl. dit netselskabs tarif (kræver netselskab)"
+            }
+          },
+          {
+            "id": "net_inkl_alt_elvarme",
+            "label": {
+              "en": "Full price, reduced tax for electric heating (needs grid company)",
+              "da": "Hele prisen, nedsat afgift til elvarme (kræver netselskab)"
+            }
+          },
+          {
+            "id": "net_inkl_tarif",
+            "label": {
+              "en": "Spot + tariffs incl. grid tariff, without tax (needs grid company)",
+              "da": "Spot + tariffer inkl. nettarif, uden afgift (kræver netselskab)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "grid_company",
+        "type": "dropdown",
+        "value": "none",
+        "label": {
+          "en": "Grid company",
+          "da": "Netselskab"
+        },
+        "hint": {
+          "en": "Needed for the price types that include the grid tariff.",
+          "da": "Kræves til de pristyper, der inkluderer nettariffen."
+        },
+        "values": [
+          {
+            "id": "none",
+            "label": {
+              "en": "None (without grid tariff)",
+              "da": "Ingen (uden nettarif)"
+            }
+          },
+          {
+            "id": "5790001089030",
+            "label": {
+              "en": "N1 (DK1)",
+              "da": "N1 (DK1)"
+            }
+          },
+          {
+            "id": "5790000392261",
+            "label": {
+              "en": "Trefor (DK1)",
+              "da": "Trefor (DK1)"
+            }
+          },
+          {
+            "id": "5790000704842",
+            "label": {
+              "en": "Konstant (DK1)",
+              "da": "Konstant (DK1)"
+            }
+          },
+          {
+            "id": "5790000610099",
+            "label": {
+              "en": "Dinel (DK1)",
+              "da": "Dinel (DK1)"
+            }
+          },
+          {
+            "id": "5790000610976",
+            "label": {
+              "en": "Vores Elnet (DK1)",
+              "da": "Vores Elnet (DK1)"
+            }
+          },
+          {
+            "id": "5790000836727",
+            "label": {
+              "en": "Ravdex (DK1)",
+              "da": "Ravdex (DK1)"
+            }
+          },
+          {
+            "id": "5790000681327",
+            "label": {
+              "en": "RAH Net (DK1)",
+              "da": "RAH Net (DK1)"
+            }
+          },
+          {
+            "id": "5790000681358",
+            "label": {
+              "en": "Elværk (DK1)",
+              "da": "Elværk (DK1)"
+            }
+          },
+          {
+            "id": "5790000610877",
+            "label": {
+              "en": "Nord Energi (DK1)",
+              "da": "Nord Energi (DK1)"
+            }
+          },
+          {
+            "id": "5790000395620",
+            "label": {
+              "en": "NOE Net (DK1)",
+              "da": "NOE Net (DK1)"
+            }
+          },
+          {
+            "id": "5790001100520",
+            "label": {
+              "en": "Elnet Midt (DK1)",
+              "da": "Elnet Midt (DK1)"
+            }
+          },
+          {
+            "id": "5790000392551",
+            "label": {
+              "en": "Flow Elnet (DK1)",
+              "da": "Flow Elnet (DK1)"
+            }
+          },
+          {
+            "id": "5790001090111",
+            "label": {
+              "en": "LNet (DK1)",
+              "da": "LNet (DK1)"
+            }
+          },
+          {
+            "id": "5790001088217",
+            "label": {
+              "en": "Veksel (DK1)",
+              "da": "Veksel (DK1)"
+            }
+          },
+          {
+            "id": "5790000682102",
+            "label": {
+              "en": "Ikast El Net (DK1)",
+              "da": "Ikast El Net (DK1)"
+            }
+          },
+          {
+            "id": "5790001089023",
+            "label": {
+              "en": "Midtfyns Elforsyning (DK1)",
+              "da": "Midtfyns Elforsyning (DK1)"
+            }
+          },
+          {
+            "id": "5790001095277",
+            "label": {
+              "en": "Elinord (DK1)",
+              "da": "Elinord (DK1)"
+            }
+          },
+          {
+            "id": "5790001103460",
+            "label": {
+              "en": "Læsø Elnet (DK1)",
+              "da": "Læsø Elnet (DK1)"
+            }
+          },
+          {
+            "id": "5790001095444",
+            "label": {
+              "en": "Sunds Net (DK1)",
+              "da": "Sunds Net (DK1)"
+            }
+          },
+          {
+            "id": "5790000706419",
+            "label": {
+              "en": "Tarm Elværk (DK1)",
+              "da": "Tarm Elværk (DK1)"
+            }
+          },
+          {
+            "id": "5790001090166",
+            "label": {
+              "en": "Hammel Elforsyning (DK1)",
+              "da": "Hammel Elforsyning (DK1)"
+            }
+          },
+          {
+            "id": "5790000681105",
+            "label": {
+              "en": "Grindsted Elnet (DK1)",
+              "da": "Grindsted Elnet (DK1)"
+            }
+          },
+          {
+            "id": "5790001088309",
+            "label": {
+              "en": "Forsyning Elnet (DK1)",
+              "da": "Forsyning Elnet (DK1)"
+            }
+          },
+          {
+            "id": "5790001095451",
+            "label": {
+              "en": "Aal El-Net (DK1)",
+              "da": "Aal El-Net (DK1)"
+            }
+          },
+          {
+            "id": "5790001095376",
+            "label": {
+              "en": "Hjerting (DK1)",
+              "da": "Hjerting (DK1)"
+            }
+          },
+          {
+            "id": "5790000610839",
+            "label": {
+              "en": "Hurup Elværk (DK1)",
+              "da": "Hurup Elværk (DK1)"
+            }
+          },
+          {
+            "id": "5790000705184",
+            "label": {
+              "en": "Cerius (DK2)",
+              "da": "Cerius (DK2)"
+            }
+          },
+          {
+            "id": "5790000706686",
+            "label": {
+              "en": "Trefor Øst (DK2)",
+              "da": "Trefor Øst (DK2)"
+            }
+          },
+          {
+            "id": "5790000705689",
+            "label": {
+              "en": "Radius (DK2)",
+              "da": "Radius (DK2)"
+            }
+          },
+          {
+            "id": "5790000836239",
+            "label": {
+              "en": "Elektrus (DK2)",
+              "da": "Elektrus (DK2)"
+            }
+          },
+          {
+            "id": "5790001089375",
+            "label": {
+              "en": "Zeanet (DK2)",
+              "da": "Zeanet (DK2)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "gln_custom",
+        "type": "text",
+        "value": "",
+        "label": {
+          "en": "Grid company GLN (optional)",
+          "da": "Netselskabets GLN-nummer (valgfrit)"
+        },
+        "hint": {
+          "en": "A 13-digit GLN number for a grid company that is not in the list. Overrides the list when filled in.",
+          "da": "Et 13-cifret GLN-nummer for et netselskab, der ikke står på listen. Går forud for listen, når det er udfyldt."
+        }
+      }
+    ]
+  }
+]
