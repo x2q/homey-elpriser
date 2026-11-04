@@ -1,6 +1,6 @@
 {
   "name": "homey-elpriser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hourly electricity prices from elpriser.org for Homey: 40 European price zones",
   "private": true,
   "license": "MIT",

@@ -104,3 +104,23 @@ test('cheapestSlots: earliest wins a tie, result in time order, forecasts never 
   assert.deepEqual(prices.cheapestSlots(slots, 1).map((s) => s.start / prices.HOUR_MS), [1]);
   assert.deepEqual(prices.cheapestSlots(slots, 0), []);
 });
+
+test('Finland (fi) is on Helsinki time: hour 0 of a Finnish day is 22:00Z in winter, 21:00Z in summer', () => {
+  const zones = require('../lib/zones');
+  const fi = zones.ZONES.find((z) => z.key === 'fi');
+  assert.equal(fi.tz, 'Europe/Helsinki');
+  // the other Nordic feed zones stay on the Copenhagen hour
+  for (const key of ['dk1', 'dk2', 'no1', 'se3', 'nl']) assert.equal(zones.ZONES.find((z) => z.key === key).tz, CPH, key);
+
+  // ENTSO-E ground truth: the market day 2026-11-03 starts at 2026-11-02T23:00Z = Helsinki hour 1
+  const values = Array.from({ length: 24 }, (_, h) => (h === 1 ? 5.77 : h));
+  const slots = prices.expandSlots({ days: [{ date: '2026-11-03', kind: 'actual', values }] }, fi.tz);
+  assert.equal(slots.length, 24);
+  assert.equal(new Date(slots[0].start).toISOString(), '2026-11-02T22:00:00.000Z');
+  assert.equal(new Date(slots[1].start).toISOString(), '2026-11-02T23:00:00.000Z');
+  assert.equal(slots[1].value, 5.77);
+  assert.equal(new Date(slots[23].start).toISOString(), '2026-11-03T21:00:00.000Z');
+
+  const summer = prices.expandSlots({ days: [{ date: '2026-07-01', kind: 'actual', values }] }, fi.tz);
+  assert.equal(new Date(summer[0].start).toISOString(), '2026-06-30T21:00:00.000Z');
+});

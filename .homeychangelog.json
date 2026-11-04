@@ -2,5 +2,9 @@
   "0.1.0": {
     "en": "First version: one device per price zone (40 zones), price now / next hour / today min, max and average, price level, cheap-hour switch, flow triggers and conditions.",
     "da": "Første version: én enhed pr. prisområde (40 zoner), pris nu / næste time / dagens laveste, højeste og gennemsnit, prisniveau, billig-time-kontakt, flow-triggere og betingelser."
+  },
+  "0.1.1": {
+    "en": "Finland (fi) is now on Helsinki time: elpriser.org serves Finnish days in Helsinki hours, so prices were one hour off for Finnish users.",
+    "da": "Finland (fi) følger nu Helsinki-tid: elpriser.org leverer finske døgn i Helsinki-timer, så priserne var en time forskudt for finske brugere."
   }
 }
